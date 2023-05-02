@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Contracts;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,10 +14,11 @@ namespace WindowsFormsContactos
     public partial class ContactsDetails : Form
     {
         private BusinessLogicLayer _businessLogicLayer;
+        private Contacts _contacts;
         public ContactsDetails()
         {
             InitializeComponent();
-            _businessLogicLayer = new BusinessLogicLayer();
+            _businessLogicLayer = new BusinessLogicLayer();            
         }
 
         private void btncancel_Click(object sender, EventArgs e)
@@ -39,8 +41,32 @@ namespace WindowsFormsContactos
             contacts.Phone = txtphone.Text;
             contacts.Address = txtaddress.Text;
 
+            contacts.Id = _contacts != null ? _contacts.Id : 0;
+
             _businessLogicLayer.SaveContact(contacts);
 
+        }
+
+        public void LoadContact(Contacts contacts)
+        {
+            _contacts = contacts;
+            if (contacts != null )
+            {
+                txtfirstname.Text = contacts.Firstname;
+                txtlastname.Text = contacts.Lastname;
+                txtphone.Text = contacts.Phone;
+                txtaddress.Text = contacts.Address; 
+            }
+
+            //clearform(); 
+        }
+
+        private void clearform()
+        {
+            txtfirstname.Clear(); 
+            txtlastname.Clear();
+            txtphone.Clear();
+            txtaddress.Clear();
         }
     }
 }

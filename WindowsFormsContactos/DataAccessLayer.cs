@@ -48,6 +48,44 @@ namespace WindowsFormsContactos
 
         }
 
+        public void UpdateContacts(Contacts contacts) 
+        {
+            try
+            {
+                conn.Open();
+                string query = "UPDATE Contacts_ SET  Firstname=@Fistname , Lastname = @Lastname, Phone = @Phone, Address= @Address WHERE Id= @Id";
+
+                SqlParameter Id = new SqlParameter("@Id", contacts.Id);
+                SqlParameter Firstname = new SqlParameter("@Fistname", contacts.Firstname);
+                SqlParameter Lastname = new SqlParameter("@Lastname", contacts.Lastname);
+                SqlParameter Phone = new SqlParameter("@Phone", contacts.Phone);
+                SqlParameter Address = new SqlParameter("@Address", contacts.Address);
+
+                SqlCommand command = new SqlCommand(query, conn);
+
+                command.Parameters.Add(Id);
+                command.Parameters.Add(Firstname);
+                command.Parameters.Add(Lastname);
+                command.Parameters.Add(Phone);
+                command.Parameters.Add(Address);
+
+                command.ExecuteNonQuery();
+
+                MessageBox.Show("Modificado con exito");
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+        }
+
         public List<Contacts > GetContacts() 
         {
             List<Contacts> contacts = new List<Contacts>();

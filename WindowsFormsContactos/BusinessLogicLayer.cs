@@ -19,8 +19,8 @@ namespace WindowsFormsContactos
         {
             if(contacts.Id  == 0)            
                 _dataAccessLayer.InsertContacts(contacts);            
-            //else            
-                //_dataAccessLayer.UpdateContacts
+            else            
+                _dataAccessLayer.UpdateContacts(contacts);
 
             return contacts;
             

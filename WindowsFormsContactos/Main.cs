@@ -28,6 +28,23 @@ namespace WindowsFormsContactos
         {
             OpenContactsDetails();
         }
+        private void gv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewLinkCell cell = (DataGridViewLinkCell)gv.Rows[e.RowIndex].Cells[e.ColumnIndex];
+            if (cell.Value.ToString() == "EDIT") 
+            {
+                ContactsDetails contactsDetails = new ContactsDetails();
+
+                contactsDetails.LoadContact(new Contacts 
+                {
+                    Id =int.Parse((gv.Rows[e.RowIndex].Cells[0]).Value.ToString()),
+                    Firstname  =(gv.Rows[e.RowIndex].Cells[1]).Value.ToString(),
+                    Lastname  =(gv.Rows[e.RowIndex].Cells[2]).Value.ToString(),
+                    Phone  =(gv.Rows[e.RowIndex].Cells[3]).Value.ToString(),
+                    Address  =(gv.Rows[e.RowIndex].Cells[4]).Value.ToString(),
+                });
+                contactsDetails.ShowDialog(this);            }
+        }
 
         #endregion 
 
@@ -48,6 +65,7 @@ namespace WindowsFormsContactos
 
             gv.DataSource = contacts;  
         }
-        #endregion 
+        #endregion
+
     }
 }
