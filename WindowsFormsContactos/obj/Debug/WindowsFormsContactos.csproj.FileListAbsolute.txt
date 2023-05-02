@@ -1,0 +1,12 @@
+C:\Users\HENRY-LAPTOP\Documents\C#\WindowsFormsContactos\WindowsFormsContactos\bin\Debug\WindowsFormsContactos.exe.config
+C:\Users\HENRY-LAPTOP\Documents\C#\WindowsFormsContactos\WindowsFormsContactos\bin\Debug\WindowsFormsContactos.exe
+C:\Users\HENRY-LAPTOP\Documents\C#\WindowsFormsContactos\WindowsFormsContactos\bin\Debug\WindowsFormsContactos.pdb
+C:\Users\HENRY-LAPTOP\Documents\C#\WindowsFormsContactos\WindowsFormsContactos\obj\Debug\WindowsFormsContactos.csproj.AssemblyReference.cache
+C:\Users\HENRY-LAPTOP\Documents\C#\WindowsFormsContactos\WindowsFormsContactos\obj\Debug\WindowsFormsContactos.csproj.SuggestedBindingRedirects.cache
+C:\Users\HENRY-LAPTOP\Documents\C#\WindowsFormsContactos\WindowsFormsContactos\obj\Debug\WindowsFormsContactos.ContactsDetails.resources
+C:\Users\HENRY-LAPTOP\Documents\C#\WindowsFormsContactos\WindowsFormsContactos\obj\Debug\WindowsFormsContactos.Main.resources
+C:\Users\HENRY-LAPTOP\Documents\C#\WindowsFormsContactos\WindowsFormsContactos\obj\Debug\WindowsFormsContactos.Properties.Resources.resources
+C:\Users\HENRY-LAPTOP\Documents\C#\WindowsFormsContactos\WindowsFormsContactos\obj\Debug\WindowsFormsContactos.csproj.GenerateResource.cache
+C:\Users\HENRY-LAPTOP\Documents\C#\WindowsFormsContactos\WindowsFormsContactos\obj\Debug\WindowsFormsContactos.csproj.CoreCompileInputs.cache
+C:\Users\HENRY-LAPTOP\Documents\C#\WindowsFormsContactos\WindowsFormsContactos\obj\Debug\WindowsFormsContactos.exe
+C:\Users\HENRY-LAPTOP\Documents\C#\WindowsFormsContactos\WindowsFormsContactos\obj\Debug\WindowsFormsContactos.pdb
