@@ -86,7 +86,37 @@ namespace WindowsFormsContactos
 
         }
 
-        public List<Contacts > GetContacts() 
+        public void deletecontacts(int Id)
+        {
+            try
+            {
+                conn.Open();
+                string query = "DELETE FROM Contacts_ WHERE Id= @Id";
+
+                SqlParameter Id2 = new SqlParameter("@Id", Id);                
+
+                SqlCommand command = new SqlCommand(query, conn);
+
+                command.Parameters.Add(Id2);
+                
+
+                command.ExecuteNonQuery();
+
+                MessageBox.Show("Eliminado con exito");
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public List<Contacts > GetContacts(string searchtext=null) 
         {
             List<Contacts> contacts = new List<Contacts>();
             try
@@ -94,7 +124,16 @@ namespace WindowsFormsContactos
                 conn.Open();
                 string query = "SELECT * FROM Contacts_";
 
-                SqlCommand command = new SqlCommand(query, conn);
+                SqlCommand command = new SqlCommand();
+
+                if (!string.IsNullOrEmpty(searchtext))
+                {
+                    query += " WHERE Firstname like @searchtext OR Lastname like @searchtext OR Phone like @searchtext OR Address like @searchtext ";
+                    command.Parameters.Add(new SqlParameter("@searchtext", $"%{searchtext}%"));
+                }
+
+                command.CommandText= query;
+                command.Connection= conn;
 
                 SqlDataReader  reader = command.ExecuteReader();
 

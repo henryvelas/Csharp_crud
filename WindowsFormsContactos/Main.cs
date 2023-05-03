@@ -43,7 +43,13 @@ namespace WindowsFormsContactos
                     Phone  =(gv.Rows[e.RowIndex].Cells[3]).Value.ToString(),
                     Address  =(gv.Rows[e.RowIndex].Cells[4]).Value.ToString(),
                 });
-                contactsDetails.ShowDialog(this);            }
+                contactsDetails.ShowDialog(this);  
+            }
+            else if (cell.Value.ToString() == "Delete")
+            {
+                deletecontacts(int.Parse((gv.Rows[e.RowIndex].Cells[0]).Value.ToString()));
+                PopulateContacts();
+            }
         }
 
         #endregion 
@@ -59,13 +65,23 @@ namespace WindowsFormsContactos
             //contactsDetails.ShowDialog();
         }
 
-        public void PopulateContacts()
+        public void PopulateContacts(string searchtext=null)
         {
-            List<Contacts> contacts = _businessLogicLayer.GetContacts();
+            List<Contacts> contacts = _businessLogicLayer.GetContacts(searchtext);
 
             gv.DataSource = contacts;  
         }
+
+        private void deletecontacts(int id)
+        {
+            _businessLogicLayer.deletecontacts(id);
+        }
         #endregion
 
+        private void btnsearch_Click(object sender, EventArgs e)
+        {
+            PopulateContacts(txtsearch.Text);
+            txtsearch.Clear();
+        }
     }
 }

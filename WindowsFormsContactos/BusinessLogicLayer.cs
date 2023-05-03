@@ -26,10 +26,14 @@ namespace WindowsFormsContactos
             
         }
 
-        public  List<Contacts> GetContacts()
+        public  List<Contacts> GetContacts(string searchtext=null)
         {
-          return  _dataAccessLayer.GetContacts();
+          return  _dataAccessLayer.GetContacts(searchtext);
         }
 
+        public void deletecontacts(int Id)
+        {
+           _dataAccessLayer.deletecontacts(Id);
+        }
     }
 }

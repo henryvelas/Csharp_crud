@@ -35,6 +35,7 @@
             this.btnsearch = new System.Windows.Forms.Button();
             this.btnadd = new System.Windows.Forms.Button();
             this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,7 +56,8 @@
             this.lastnameDataGridViewTextBoxColumn,
             this.phoneDataGridViewTextBoxColumn,
             this.addressDataGridViewTextBoxColumn,
-            this.Edit});
+            this.Edit,
+            this.Delete});
             this.gv.DataSource = this.contactsBindingSource;
             this.gv.Location = new System.Drawing.Point(12, 140);
             this.gv.Name = "gv";
@@ -90,6 +92,7 @@
             this.btnsearch.TabIndex = 3;
             this.btnsearch.Text = "Search";
             this.btnsearch.UseVisualStyleBackColor = true;
+            this.btnsearch.Click += new System.EventHandler(this.btnsearch_Click);
             // 
             // btnadd
             // 
@@ -109,6 +112,13 @@
             this.Edit.ReadOnly = true;
             this.Edit.Text = "EDIT";
             this.Edit.UseColumnTextForLinkValue = true;
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "Delete";
+            this.Delete.Name = "Delete";
+            this.Delete.Text = "Delete";
+            this.Delete.UseColumnTextForLinkValue = true;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -184,6 +194,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewLinkColumn Edit;
+        private System.Windows.Forms.DataGridViewLinkColumn Delete;
     }
 }
 
